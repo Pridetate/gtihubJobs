@@ -6,7 +6,7 @@ const CardComponent = ({item,navigation,onPress}) => {
   const {width,height} = Dimensions.get('window')
     return (
         <TouchableOpacity onPress = {onPress}>
-            <Card style = {[styles.card,{width: 0.9 * width , marginLeft: 0.05 * width}]}>
+            <Card containerStyle = {styles.card} style = {[styles.card,{width: 0.9 * width , marginLeft: 0.05 * width}]}>
             <View style = {styles.allElementsContainer}>
                 <Text style = {styles.title}>{item.title} </Text>
                 <View style = {styles.logoContainer} >
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     //   justifyContent: 'center',
     // },
     card:{
-        paddingBottom: 10
+        paddingBottom: 10,
+        color: '#66ccff'
       },
     allElementsContainer:{
       paddingBottom:10

@@ -5,9 +5,10 @@ import ReactMarkdown from 'react-markdown'
 import Markdown from 'react-native-markdown-package'
 import ReactMarkdownWithHtml from 'react-markdown/with-html'
 import HTML from 'react-native-render-html'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 
-const ItemScreen = ({navigation,route}) => {
+const ItemScreen = ({route}) => {
     const {item} = route.params
     const {width,height} = Dimensions.get('window')
 
@@ -18,6 +19,7 @@ const ItemScreen = ({navigation,route}) => {
 
 
     return (
+        <SafeAreaProvider>
         <ScrollView style = {{backgroundColor: '#66ccff'}}>
         <View style = {[styles.itemContainer,{width: 0.9 * width , marginLeft: 0.05 * width}]}>
             <Text style = {styles.title}>{item.title}</Text>
@@ -37,6 +39,7 @@ const ItemScreen = ({navigation,route}) => {
                                         />} 
         </View>
         </ScrollView>
+        </SafeAreaProvider>
         
     )
 }

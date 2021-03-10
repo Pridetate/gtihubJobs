@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import { StyleSheet, Text, View ,ActivityIndicator} from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 
 import Jobs from '../components/Jobs'
@@ -22,11 +23,13 @@ useEffect(() => {
     .finally(() => setLoading(false));
 }, [isRefresh]);
     return  (
-
+      <SafeAreaProvider>
         <View style={{ flex: 1, padding: 24 , backgroundColor: '#66ccff'}}>
           {isLoading ? <ActivityIndicator size="small" color="#0000ff" /> : ( <Jobs data = {data} refreshList = {()=>{setIsRefresh(!isRefresh)}}/>)
           }
         </View>
+      </SafeAreaProvider>
+        
       );
 }
 

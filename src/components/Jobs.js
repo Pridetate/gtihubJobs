@@ -7,7 +7,6 @@ const Jobs = ({data,refreshList}) => {
     
     const navigation = useNavigation(); 
 
-    console.warn(data)
     return (
         <View >
           <TouchableOpacity onPress = {refreshList}>
@@ -20,7 +19,7 @@ const Jobs = ({data,refreshList}) => {
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
 
-                <CardComponent item = {item} onPress = {()=>{navigation.navigate('Item',{item})}}
+                <CardComponent item = {item} onPress = {()=>{navigation.navigate('Full Job Description',{item})}}
                 />
             )
         }
